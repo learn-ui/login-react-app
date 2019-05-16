@@ -1,9 +1,20 @@
 header {
     background: #33aaff;
+    text-align: center;
+    padding: 1em;
+    
 }
 .logo{
     font-size: 40px;
-    font-weight:bold;
+    font-weight: bold;
     color: #fff;
-    text-align:center;
+    text-align: center;
+}
+.active {
+    background: red;
+
+}
+
+.non-active {
+    background: blue;
 }

@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import '../css/style.scss';
-import JSON from '../db.json';
+
 
 class Header extends Component {
    
@@ -9,25 +9,29 @@ class Header extends Component {
 
         this.state = {
             keyword: 'hello',
-            title: 'The keyword is : '
+            title: 'The keyword is : ',
+            active: 'non-active'
         }
 
     }
 
    
     inputClickHandler(event ) {
+        let value = event.target.value !== '' ? 'active': 'non-active';
        this.setState({
-            keywords: event.target.value
+            keywords: event.target.value,
+            active: value
         })
     }
 
 
     render () {
-        console.log(this.state.keywords);
+        console.log(this.props.keywords);
         return (
-            <header>
+            <header className={this.state.active}>
                 <div className="logo"> LOGO </div>
-                <input type="text" onChange={ this.inputClickHandler.bind(this) }/>
+                <input type="text" onChange={ this.props.keywords }/>
+
                 <div>{this.state.title} {this.state.keywords} </div>
             </header>
         )

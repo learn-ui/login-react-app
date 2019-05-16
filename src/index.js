@@ -1,13 +1,30 @@
 
-import React from 'react';
+import React ,{ Component} from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';
-const App = () => {
-    return (
-          <div>
-              <Header/>
+import NewsList from './components/newslist';
+import JSON from './db.json';
+class App extends Component {
+   
+    state = {
+        news: JSON
+    }
+    getKeyword= (event) => {
+      console.log('event=' +event.target.value);
+    }
+    render() {
+     
+        return (
+            <div>
+              <Header keywords={this.getKeyword}/>
+              <NewsList news={this.state.news} >
+               <h1>This is news feed-</h1>
+              </NewsList>
           </div>
-    );
+        )
+
+    }
+
 }
 
 ReactDOM.render(<App/>, document.getElementById('root'));
